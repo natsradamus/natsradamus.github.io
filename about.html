@@ -9,8 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    .about-hero { margin-bottom: 48px; }
-
     .about-name {
       font-family: 'DM Mono', monospace;
       font-size: 26px;
@@ -22,21 +20,21 @@
     .about-bio {
       font-size: 15px;
       color: var(--text-secondary);
-      line-height: 1.75;
+      line-height: 1.8;
       font-weight: 300;
-      max-width: 560px;
+      max-width: 580px;
       margin-bottom: 24px;
     }
 
-    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
 
-    /* ── Experience ── */
     .exp-list { list-style: none; }
 
     .exp-item {
-      display: flex;
+      display: grid;
+      grid-template-columns: 120px 1fr;
       gap: 20px;
-      padding: 18px 0;
+      padding: 22px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -47,35 +45,23 @@
       font-size: 12px;
       font-family: 'DM Mono', monospace;
       color: var(--text-tertiary);
-      min-width: 80px;
-      padding-top: 2px;
-      flex-shrink: 0;
+      line-height: 1.5;
     }
-
-    .exp-body {}
 
     .exp-title {
       font-size: 14px;
       font-weight: 500;
       color: var(--text-primary);
-      margin-bottom: 3px;
-    }
-
-    .exp-org {
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-weight: 300;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .exp-desc {
       font-size: 13px;
-      color: var(--text-tertiary);
-      line-height: 1.6;
+      color: var(--text-secondary);
       font-weight: 300;
+      line-height: 1.7;
     }
 
-    /* ── Skills grid ── */
     .skill-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -104,7 +90,6 @@
       font-weight: 300;
     }
 
-    /* ── Cert ── */
     .cert-item {
       display: flex;
       align-items: flex-start;
@@ -113,6 +98,7 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .cert-item:first-child { padding-top: 0; }
     .cert-item:last-child { border-bottom: none; }
 
     .cert-icon {
@@ -150,12 +136,11 @@
       display: inline-block;
     }
 
-    /* ── Contact ── */
     .contact-block {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 28px 28px;
+      padding: 28px;
     }
 
     .contact-heading {
@@ -177,20 +162,24 @@
 <body>
 
   <nav>
-    <a class="nav-logo" href="../index.html">natsradamus</a>
+    <a class="nav-logo" href="index.html">natsradamus</a>
     <ul class="nav-links">
-      <li><a href="../index.html">Projects</a></li>
+      <li><a href="index.html">Projects</a></li>
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="mailto:">Contact</a></li>
+      <li><a href="mailto:nsierra1@gmail.com">Contact</a></li>
     </ul>
   </nav>
 
   <main class="page">
 
-    <div class="about-hero fade fade-1">
-      <p class="about-name">Natalie</p>
-      <p class="about-bio">IT support professional with five years of experience at the intersection of SaaS administration, macOS fleet management, and internal security. I build tools that make systems more predictable — for myself and for others. Currently studying for Security+ and actively moving toward insider threat and SOC-focused work.</p>
+    <div class="fade fade-1">
+      <p class="about-name">Natalie Sierra</p>
+      <p class="about-bio">IT support engineer with 6+ years managing enterprise systems and infrastructure. I've expanded into AI governance, endpoint security tooling, and developer enablement — building native macOS utilities, and bridging the gap between engineering and IT operations. I thrive in fast-moving environments and bring a track record of proactive, security-conscious solutions that scale.</p>
       <div class="btn-row">
+        <a class="btn" href="https://linkedin.com/in/sierranatalie" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
         <a class="btn" href="https://github.com/natsradamus" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
@@ -199,7 +188,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           sorterapp.net
         </a>
-        <span class="status" style="font-size:13px;">
+        <span class="status">
           <span class="status-dot"></span>
           Open to the right opportunity
         </span>
@@ -211,14 +200,37 @@
     <div class="section fade fade-2">
       <p class="section-label">Experience</p>
       <ul class="exp-list">
+
         <li class="exp-item">
-          <span class="exp-year">2020 – present</span>
-          <div class="exp-body">
-            <p class="exp-title">IT Support</p>
-            <p class="exp-org">Large enterprise org · ~2,000 employees</p>
-            <p class="exp-desc">SaaS administration, macOS fleet management, identity tooling, and internal security processes. Operating across EST and PST time zones supporting a global workforce.</p>
+          <div>
+            <p class="exp-year">Nov 2021 – present</p>
+          </div>
+          <div>
+            <p class="exp-title">IT Support Engineer</p>
+            <p class="exp-desc">Built identity and workflow automation that cut processing time by 40%. Developed a native macOS security scoring app mapping 14 controls to GLBA, SOX, NIST CSF, and OWASP Top 10. Identified and documented a systemic MDM enrollment failure across 26 payloads, backed by 110+ incidents.</p>
           </div>
         </li>
+
+        <li class="exp-item">
+          <div>
+            <p class="exp-year">May – Nov 2021</p>
+          </div>
+          <div>
+            <p class="exp-title">Systems Administrator</p>
+            <p class="exp-desc">Managed macOS server infrastructure and automation using Bash, Zsh, and AppleScript. Applied core networking principles to optimize system performance and reduce studio downtime by 15%.</p>
+          </div>
+        </li>
+
+        <li class="exp-item">
+          <div>
+            <p class="exp-year">Sept 2015 – Jul 2021</p>
+          </div>
+          <div>
+            <p class="exp-title">Lead Technician</p>
+            <p class="exp-desc">Led a repair team to exceed industry output standards. Diagnosed and resolved systemic efficiency gaps, improving turnaround time and overall team performance.</p>
+          </div>
+        </li>
+
       </ul>
     </div>
 
@@ -229,19 +241,19 @@
       <div class="skill-grid">
         <div class="skill-cell">
           <p class="skill-cat">Identity & MDM</p>
-          <p class="skill-items">Okta<br>Jamf Pro<br>Intune<br>Munki<br>SaltStack</p>
+          <p class="skill-items">Okta Workflows<br>Jamf Pro<br>Intune<br>Munki<br>SaltStack</p>
         </div>
         <div class="skill-cell">
           <p class="skill-cat">Security</p>
-          <p class="skill-items">Kolide<br>FleetDM<br>Endpoint compliance<br>Insider threat</p>
+          <p class="skill-items">Kolide<br>FleetDM<br>Tines<br>Endpoint compliance<br>NIST CSF · OWASP</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Platforms</p>
+          <p class="skill-items">macOS<br>Linux<br>Windows<br>VMware<br>AWS · GCP</p>
         </div>
         <div class="skill-cell">
           <p class="skill-cat">Local AI</p>
           <p class="skill-items">LM Studio<br>ComfyUI<br>Claude Code</p>
-        </div>
-        <div class="skill-cell">
-          <p class="skill-cat">Hardware</p>
-          <p class="skill-items">AMD 9800X3D<br>RTX 5080<br>RPCS3 emulation<br>Bambu Lab 3D</p>
         </div>
       </div>
     </div>
@@ -250,6 +262,7 @@
 
     <div class="section fade fade-4">
       <p class="section-label">Certifications</p>
+
       <div class="cert-item">
         <div class="cert-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -260,6 +273,27 @@
           <span class="cert-badge">in progress</span>
         </div>
       </div>
+
+      <div class="cert-item">
+        <div class="cert-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div>
+          <p class="cert-name">CompTIA Network+</p>
+          <p class="cert-issuer">CompTIA</p>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <p class="cert-name">Apple Certified Mac & iOS Technician</p>
+          <p class="cert-issuer">Apple</p>
+        </div>
+      </div>
+
     </div>
 
     <hr class="fade fade-5" />
@@ -268,9 +302,9 @@
       <div class="contact-block">
         <p class="contact-heading">Get in touch</p>
         <p class="contact-sub">Feel free to reach out for opportunities or to talk shop.</p>
-        <a class="btn" href="mailto:">
+        <a class="btn" href="mailto:nsierra1@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Send an email
+          nsierra1@gmail.com
         </a>
       </div>
     </div>
