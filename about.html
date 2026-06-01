@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — natsradamus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-hero { margin-bottom: 48px; }
+
+    .about-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .about-bio {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    /* ── Experience ── */
+    .exp-list { list-style: none; }
+
+    .exp-item {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:first-child { padding-top: 0; }
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-year {
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+      color: var(--text-tertiary);
+      min-width: 80px;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .exp-body {}
+
+    .exp-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .exp-org {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 6px;
+    }
+
+    .exp-desc {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ── Skills grid ── */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+    }
+
+    .skill-cell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+    }
+
+    .skill-cat {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .skill-items {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── Cert ── */
+    .cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cert-item:last-child { border-bottom: none; }
+
+    .cert-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--text-tertiary);
+    }
+
+    .cert-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .cert-issuer {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    .cert-badge {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--text-tertiary);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 2px 9px;
+      margin-top: 6px;
+      display: inline-block;
+    }
+
+    /* ── Contact ── */
+    .contact-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px;
+    }
+
+    .contact-heading {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .contact-sub {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .section { margin-bottom: 44px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="../index.html">natsradamus</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Projects</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="mailto:">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <div class="about-hero fade fade-1">
+      <p class="about-name">Natalie</p>
+      <p class="about-bio">IT support professional with five years of experience at the intersection of SaaS administration, macOS fleet management, and internal security. I build tools that make systems more predictable — for myself and for others. Currently studying for Security+ and actively moving toward insider threat and SOC-focused work.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://github.com/natsradamus" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://sorterapp.net" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          sorterapp.net
+        </a>
+        <span class="status" style="font-size:13px;">
+          <span class="status-dot"></span>
+          Open to the right opportunity
+        </span>
+      </div>
+    </div>
+
+    <hr class="fade fade-2" />
+
+    <div class="section fade fade-2">
+      <p class="section-label">Experience</p>
+      <ul class="exp-list">
+        <li class="exp-item">
+          <span class="exp-year">2020 – present</span>
+          <div class="exp-body">
+            <p class="exp-title">IT Support</p>
+            <p class="exp-org">Large enterprise org · ~2,000 employees</p>
+            <p class="exp-desc">SaaS administration, macOS fleet management, identity tooling, and internal security processes. Operating across EST and PST time zones supporting a global workforce.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <hr class="fade fade-3" />
+
+    <div class="section fade fade-3">
+      <p class="section-label">Skills & tools</p>
+      <div class="skill-grid">
+        <div class="skill-cell">
+          <p class="skill-cat">Identity & MDM</p>
+          <p class="skill-items">Okta<br>Jamf Pro<br>Intune<br>Munki<br>SaltStack</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Security</p>
+          <p class="skill-items">Kolide<br>FleetDM<br>Endpoint compliance<br>Insider threat</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Local AI</p>
+          <p class="skill-items">LM Studio<br>ComfyUI<br>Claude Code</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Hardware</p>
+          <p class="skill-items">AMD 9800X3D<br>RTX 5080<br>RPCS3 emulation<br>Bambu Lab 3D</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade fade-4" />
+
+    <div class="section fade fade-4">
+      <p class="section-label">Certifications</p>
+      <div class="cert-item">
+        <div class="cert-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <p class="cert-name">CompTIA Security+</p>
+          <p class="cert-issuer">CompTIA</p>
+          <span class="cert-badge">in progress</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade fade-5" />
+
+    <div class="fade fade-5">
+      <div class="contact-block">
+        <p class="contact-heading">Get in touch</p>
+        <p class="contact-sub">Feel free to reach out for opportunities or to talk shop.</p>
+        <a class="btn" href="mailto:">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Send an email
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span class="footer-copy">© natsradamus 2026</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
