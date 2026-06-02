@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>natsradamus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero { margin-bottom: 64px; }
+
+    .hero-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 42px;
+      font-weight: 300;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .name em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 500px;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    /* ── Project card ── */
+    .project-card {
+      display: block;
+      text-decoration: none;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-mid);
+      background: var(--surface);
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(74,222,128,0.03) 0%, transparent 60%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      background: #080810;
+      position: relative;
+    }
+
+    .project-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .project-card:hover .project-thumb img {
+      transform: scale(1.02);
+    }
+
+    .project-footer {
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-name {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-primary);
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    .project-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .project-year {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    .project-arrow {
+      width: 20px; height: 20px;
+      color: var(--text-tertiary);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover .project-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .project-sub {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 300;
+      padding: 0 22px 18px;
+      line-height: 1.6;
+    }
+
+    .section { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="scanline"></div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">natsradamus</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">projects</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="mailto:nsierra1@gmail.com">contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <div class="hero fade fade-1">
+      <p class="hero-label">Portfolio — IT &amp; Security</p>
+      <h1 class="name">Natalie Sierra<br><em>builds tools.</em></h1>
+      <p class="tagline">IT support engineer with 6+ years in enterprise infrastructure. Expanding into endpoint security, AI governance, and developer enablement. Studying for Security+.</p>
+      <div class="pill-row">
+        <span class="pill">macOS</span>
+        <span class="pill">MDM</span>
+        <span class="pill">Okta</span>
+        <span class="pill">endpoint security</span>
+        <span class="pill">local AI</span>
+      </div>
+      <div class="hero-actions">
+        <span class="status">
+          <span class="status-dot"></span>
+          open to the right opportunity
+        </span>
+      </div>
+    </div>
+
+    <div class="section fade fade-2">
+      <p class="section-label">Projects</p>
+
+      <a class="project-card" href="projects/sorter.html">
+        <div class="project-thumb">
+          <img src="sorter-hero.png" alt="Sorter — macOS file organizer" />
+        </div>
+        <div class="project-footer">
+          <span class="project-name">Sorter</span>
+          <div class="project-right">
+            <span class="project-year">2024</span>
+            <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+        </div>
+        <p class="project-sub">Native macOS menu bar utility. Automatic file organization, 100% on-device.</p>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    <span class="footer-copy">© natsradamus 2026</span>
+    <ul class="footer-links">
+      <li><a href="index.html">projects</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+    });
+  </script>
+</body>
+</html>
