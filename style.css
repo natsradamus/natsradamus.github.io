@@ -60,7 +60,6 @@ body::before {
   transform: translate(-50%, -50%);
   box-shadow: 0 0 6px var(--accent);
   transition: width 0.12s ease, height 0.12s ease;
-  mix-blend-mode: screen;
 }
 
 .cursor-ring {
