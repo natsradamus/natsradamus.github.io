@@ -153,15 +153,16 @@
   </style>
 </head>
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="scanline"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="scanline" id="scanline"></div>
 
   <nav>
     <a class="nav-logo" href="../index.html">natsradamus</a>
     <ul class="nav-links">
       <li><a href="../index.html">projects</a></li>
       <li><a href="../about.html">about</a></li>
-      <li><a href="mailto:nsierra1@gmail.com">contact</a></li>
+      
     </ul>
   </nav>
 
@@ -247,16 +248,63 @@
       <li><a href="../about.html">about</a></li>
     </ul>
   </footer>
-
   <script>
-    const cursor = document.getElementById('cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
+    // ── Random accent color per visit ──
+    const accents = [
+      { h: "#4ade80", rgb: "74,222,128" },
+      { h: "#60a5fa", rgb: "96,165,250" },
+      { h: "#f472b6", rgb: "244,114,182" },
+      { h: "#fb923c", rgb: "251,146,60"  },
+      { h: "#a78bfa", rgb: "167,139,250" },
+      { h: "#34d399", rgb: "52,211,153"  },
+      { h: "#facc15", rgb: "250,204,21"  },
+    ];
+    const accent = accents[Math.floor(Math.random() * accents.length)];
+    const root = document.documentElement;
+    root.style.setProperty("--accent",        accent.h);
+    root.style.setProperty("--accent-dim",    `rgba(${accent.rgb},0.08)`);
+    root.style.setProperty("--accent-border", `rgba(${accent.rgb},0.20)`);
+
+    // ── Cursor ──
+    const dot  = document.getElementById("cursorDot");
+    const ring = document.getElementById("cursorRing");
+    let mx = -100, my = -100, rx = -100, ry = -100;
+
+    document.addEventListener("mousemove", e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + "px";
+      dot.style.top  = my + "px";
     });
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('expanded'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('expanded'));
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function tick() {
+      rx = lerp(rx, mx, 0.18);
+      ry = lerp(ry, my, 0.18);
+      ring.style.left = rx + "px";
+      ring.style.top  = ry + "px";
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    document.querySelectorAll("a, button").forEach(el => {
+      el.addEventListener("mouseenter", () => ring.classList.add("hovering"));
+      el.addEventListener("mouseleave", () => ring.classList.remove("hovering"));
+    });
+
+    document.addEventListener("mousedown", () => {
+      dot.classList.add("clicking");
+      ring.classList.add("clicking");
+    });
+    document.addEventListener("mouseup", () => {
+      dot.classList.remove("clicking");
+      ring.classList.remove("clicking");
+    });
+
+    document.addEventListener("mouseleave", () => {
+      dot.style.opacity = "0"; ring.style.opacity = "0";
+    });
+    document.addEventListener("mouseenter", () => {
+      dot.style.opacity = "1"; ring.style.opacity = "";
     });
   </script>
 </body>
