@@ -3,7 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>natsradamus</title>
+  <title>Natalie S. — IT &amp; Security Engineer</title>
+  <meta name="description" content="IT support engineer, 6+ years in enterprise infrastructure — endpoint security, user enablement, and native macOS tooling. Open to customer-facing support, enablement, and security operations roles." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph / link unfurl -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Natalie S. — IT &amp; Security Engineer" />
+  <meta property="og:description" content="6+ years in enterprise infrastructure. Endpoint security, user enablement, and native macOS tooling — with a growing focus on security operations." />
+  <meta property="og:url" content="https://natsradamus.github.io/" />
+  <meta property="og:image" content="https://natsradamus.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -39,7 +50,7 @@
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.75;
-      max-width: 500px;
+      max-width: 520px;
       font-weight: 300;
     }
 
@@ -61,14 +72,16 @@
       background: var(--surface);
       transition: border-color 0.25s, transform 0.25s;
       position: relative;
+      margin-bottom: 14px;
     }
+    .project-card:last-child { margin-bottom: 0; }
 
     .project-card::before {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, rgba(74,222,128,0.03) 0%, transparent 60%);
+      background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 60%);
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s;
@@ -100,6 +113,32 @@
     .project-card:hover .project-thumb img {
       transform: scale(1.02);
     }
+
+    /* Imageless thumb — for work without a public screenshot */
+    .project-thumb--frameworks {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 0 28px;
+      background:
+        radial-gradient(120% 140% at 50% 0%, var(--accent-dim) 0%, transparent 55%),
+        #0b0b0a;
+    }
+
+    .fw-chip {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-mid);
+      border-radius: 100px;
+      padding: 6px 14px;
+      background: rgba(0,0,0,0.25);
+    }
+
+    .project-card:hover .fw-chip { border-color: var(--accent-border); color: var(--text-primary); }
 
     .project-footer {
       padding: 18px 22px;
@@ -160,7 +199,6 @@
     <ul class="nav-links">
       <li><a href="index.html" class="active">projects</a></li>
       <li><a href="about.html">about</a></li>
-      
     </ul>
   </nav>
 
@@ -169,12 +207,13 @@
     <div class="hero fade fade-1">
       <p class="hero-label">Portfolio — IT &amp; Security</p>
       <h1 class="name">Natalie S.<br><em>Building tools.</em></h1>
-      <p class="tagline">IT support engineer with 6+ years in enterprise infrastructure. My work spans endpoint security, AI governance, and developer enablement — with a growing focus on security operations.</p>
+      <p class="tagline">IT support engineer with 6+ years in enterprise infrastructure — supporting end users, deploying and documenting tooling across a macOS fleet, and hardening endpoints. I translate complex systems for the people who depend on them, with a growing focus on security operations.</p>
       <div class="pill-row">
         <span class="pill">macOS</span>
         <span class="pill">MDM</span>
         <span class="pill">Okta</span>
         <span class="pill">endpoint security</span>
+        <span class="pill">enablement</span>
         <span class="pill">local AI</span>
       </div>
       <div class="hero-actions">
@@ -201,7 +240,26 @@
             </svg>
           </div>
         </div>
-        <p class="project-sub">Native macOS menu bar utility. Automatic file organization, 100% on-device.</p>
+        <p class="project-sub">Native macOS menu bar utility. Automatic file organization, 100% on-device. Shipping on the Mac App Store.</p>
+      </a>
+
+      <a class="project-card" href="projects/security-scorecard.html">
+        <div class="project-thumb project-thumb--frameworks">
+          <span class="fw-chip">GLBA</span>
+          <span class="fw-chip">SOX</span>
+          <span class="fw-chip">NIST CSF</span>
+          <span class="fw-chip">OWASP Top 10</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-name">Security Scorecard</span>
+          <div class="project-right">
+            <span class="project-year">2023</span>
+            <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+        </div>
+        <p class="project-sub">Native macOS app scoring endpoint posture against 14 controls mapped to four compliance frameworks.</p>
       </a>
     </div>
 
@@ -214,64 +272,7 @@
       <li><a href="about.html">about</a></li>
     </ul>
   </footer>
-  <script>
-    // ── Random accent color per visit ──
-    const accents = [
-      { h: "#4ade80", rgb: "74,222,128" },
-      { h: "#60a5fa", rgb: "96,165,250" },
-      { h: "#f472b6", rgb: "244,114,182" },
-      { h: "#fb923c", rgb: "251,146,60"  },
-      { h: "#a78bfa", rgb: "167,139,250" },
-      { h: "#34d399", rgb: "52,211,153"  },
-      { h: "#facc15", rgb: "250,204,21"  },
-    ];
-    const accent = accents[Math.floor(Math.random() * accents.length)];
-    const root = document.documentElement;
-    root.style.setProperty("--accent",        accent.h);
-    root.style.setProperty("--accent-dim",    `rgba(${accent.rgb},0.08)`);
-    root.style.setProperty("--accent-border", `rgba(${accent.rgb},0.20)`);
 
-    // ── Cursor ──
-    const dot  = document.getElementById("cursorDot");
-    const ring = document.getElementById("cursorRing");
-    let mx = -100, my = -100, rx = -100, ry = -100;
-
-    document.addEventListener("mousemove", e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + "px";
-      dot.style.top  = my + "px";
-    });
-
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function tick() {
-      rx = lerp(rx, mx, 0.18);
-      ry = lerp(ry, my, 0.18);
-      ring.style.left = rx + "px";
-      ring.style.top  = ry + "px";
-      requestAnimationFrame(tick);
-    }
-    tick();
-
-    document.querySelectorAll("a, button").forEach(el => {
-      el.addEventListener("mouseenter", () => ring.classList.add("hovering"));
-      el.addEventListener("mouseleave", () => ring.classList.remove("hovering"));
-    });
-
-    document.addEventListener("mousedown", () => {
-      dot.classList.add("clicking");
-      ring.classList.add("clicking");
-    });
-    document.addEventListener("mouseup", () => {
-      dot.classList.remove("clicking");
-      ring.classList.remove("clicking");
-    });
-
-    document.addEventListener("mouseleave", () => {
-      dot.style.opacity = "0"; ring.style.opacity = "0";
-    });
-    document.addEventListener("mouseenter", () => {
-      dot.style.opacity = "1"; ring.style.opacity = "";
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

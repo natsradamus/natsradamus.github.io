@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sorter — native macOS file organizer</title>
-  <meta name="description" content="Sorter — a native macOS menu bar utility that organizes new files automatically, 100% on-device. Built by Natalie S. under Sorter Labs LLC." />
+  <title>Security Scorecard — native macOS compliance scoring</title>
+  <meta name="description" content="A native macOS app scoring endpoint security posture against 14 controls mapped to GLBA, SOX, NIST CSF, and OWASP Top 10. Built by Natalie S." />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 
   <!-- Open Graph / link unfurl -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sorter — native macOS file organizer" />
-  <meta property="og:description" content="A menu bar utility that sorts new files the moment they land. On-device, no cloud, no telemetry." />
-  <meta property="og:url" content="https://natsradamus.github.io/projects/sorter.html" />
-  <meta property="og:image" content="https://natsradamus.github.io/sorter-hero.png" />
+  <meta property="og:title" content="Security Scorecard — native macOS compliance scoring" />
+  <meta property="og:description" content="Scores endpoint posture against 14 controls across four compliance frameworks. Native macOS, built for security-conscious IT operations." />
+  <meta property="og:url" content="https://natsradamus.github.io/projects/security-scorecard.html" />
+  <meta property="og:image" content="https://natsradamus.github.io/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,18 +35,32 @@
     .back-link:hover { color: var(--text-secondary); }
     .back-link svg { width: 14px; height: 14px; }
 
-    .project-hero-img {
+    /* Frameworks hero — stands in for a screenshot, honestly */
+    .fw-hero {
       width: 100%;
       border-radius: var(--radius-lg);
-      overflow: hidden;
       border: 1px solid var(--border-mid);
       margin-bottom: 44px;
-      background: #080810;
+      aspect-ratio: 16 / 7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 0 32px;
+      background:
+        radial-gradient(120% 140% at 50% 0%, var(--accent-dim) 0%, transparent 55%),
+        #0b0b0a;
     }
-
-    .project-hero-img img {
-      width: 100%;
-      display: block;
+    .fw-hero .fw-chip {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-mid);
+      border-radius: 100px;
+      padding: 8px 18px;
+      background: rgba(0,0,0,0.25);
     }
 
     .project-header {
@@ -73,8 +87,6 @@
       font-family: 'IBM Plex Mono', monospace;
     }
 
-    .project-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; padding-top: 6px; }
-
     .meta-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
@@ -86,10 +98,7 @@
       margin-bottom: 44px;
     }
 
-    .meta-item {
-      background: var(--surface);
-      padding: 16px 20px;
-    }
+    .meta-item { background: var(--surface); padding: 16px 20px; }
 
     .meta-key {
       font-family: 'IBM Plex Mono', monospace;
@@ -100,11 +109,7 @@
       margin-bottom: 6px;
     }
 
-    .meta-val {
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-weight: 300;
-    }
+    .meta-val { font-size: 13px; color: var(--text-secondary); font-weight: 300; }
 
     .body-text {
       font-size: 15px;
@@ -128,15 +133,9 @@
       border-bottom: 1px solid var(--border);
       line-height: 1.5;
     }
-
     .feature-list li:last-child { border-bottom: none; }
 
-    .feature-check {
-      width: 16px; height: 16px;
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
+    .feature-check { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
 
     .security-note {
       background: var(--surface);
@@ -173,7 +172,6 @@
     <ul class="nav-links">
       <li><a href="../index.html">projects</a></li>
       <li><a href="../about.html">about</a></li>
-      
     </ul>
   </nav>
 
@@ -184,69 +182,66 @@
       all projects
     </a>
 
-    <div class="project-hero-img fade fade-1">
-      <img src="../sorter-hero.png" alt="Sorter — macOS file organizer" />
+    <div class="fw-hero fade fade-1">
+      <span class="fw-chip">GLBA</span>
+      <span class="fw-chip">SOX</span>
+      <span class="fw-chip">NIST CSF</span>
+      <span class="fw-chip">OWASP Top 10</span>
     </div>
 
     <div class="project-header fade fade-2">
       <div>
-        <h1 class="project-title">Sorter</h1>
-        <p class="project-tagline">native macOS file organization utility</p>
-      </div>
-      <div class="project-actions">
-        <a class="btn btn-accent" href="https://sorterapp.net" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Visit site
-        </a>
+        <h1 class="project-title">Security Scorecard</h1>
+        <p class="project-tagline">native macOS endpoint compliance scoring</p>
       </div>
     </div>
 
     <div class="meta-row fade fade-2">
       <div class="meta-item">
         <p class="meta-key">Year</p>
-        <p class="meta-val">2024</p>
-      </div>
-      <div class="meta-item">
-        <p class="meta-key">Entity</p>
-        <p class="meta-val">Sorter Labs LLC</p>
+        <p class="meta-val">2023</p>
       </div>
       <div class="meta-item">
         <p class="meta-key">Platform</p>
-        <p class="meta-val">macOS</p>
+        <p class="meta-val">macOS (native)</p>
       </div>
       <div class="meta-item">
-        <p class="meta-key">Distribution</p>
-        <p class="meta-val">Mac App Store</p>
+        <p class="meta-key">Scope</p>
+        <p class="meta-val">Endpoint compliance</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-key">Controls</p>
+        <p class="meta-val">14 mapped</p>
       </div>
     </div>
 
     <div class="fade fade-3">
       <p class="section-label">Overview</p>
-      <p class="body-text">Sorter runs silently in your menu bar and moves new files where they belong — by type, instantly, automatically. No rules to write. No cloud involved. No fuss.</p>
-      <p class="body-text">Built with a focus on high-fidelity native macOS aesthetics and calm, unobtrusive behavior. Sorter stays out of your way until it's already done its job.</p>
+      <p class="body-text">A native macOS app that scores a machine's security posture against 14 endpoint controls, each mapped to the compliance frameworks an enterprise actually answers to. Instead of a wall of raw settings, it turns posture into a single legible score — and shows which controls move it.</p>
+      <p class="body-text">The goal was translation: take the language auditors and security teams use and make it readable to the people running the endpoints. Same instinct I bring to support and enablement work — meet people where they are, and make the complex thing checkable.</p>
 
       <ul class="feature-list">
         <li>
           <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Works instantly — files are sorted the moment they land
+          14 endpoint controls scored against live system state
         </li>
         <li>
           <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          100% on-device — no cloud, no accounts, no telemetry
+          Each control mapped to GLBA, SOX, NIST CSF, and OWASP Top 10
         </li>
         <li>
           <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          80+ file types supported out of the box
+          Posture rolled up into a single, explainable score
         </li>
         <li>
           <svg class="feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Zero retroactive moves — only acts on new files
+          Built native to macOS, in the same idiom as the endpoints it audits
         </li>
       </ul>
 
       <div class="security-note">
-        <strong>Security note</strong>
-        Sorter operates entirely on-device with no network calls, no external dependencies, and no data collection. File paths never leave the machine. Designed with the same privacy-first principles I apply in enterprise endpoint security work.
+        <strong>Context</strong>
+        Built as internal tooling for enterprise endpoint security. Framework mappings and control logic are described here at a high level; specifics are kept generic to respect the environment it was built in.
       </div>
     </div>
 
@@ -259,6 +254,7 @@
       <li><a href="../about.html">about</a></li>
     </ul>
   </footer>
+
   <script src="../script.js"></script>
 </body>
 </html>

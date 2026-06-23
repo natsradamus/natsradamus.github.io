@@ -23,7 +23,6 @@
 html {
   background: var(--bg);
   scroll-behavior: smooth;
-  cursor: none;
 }
 
 body {
@@ -34,7 +33,6 @@ body {
   padding: 0 24px;
   -webkit-font-smoothing: antialiased;
   position: relative;
-  cursor: none;
 }
 
 /* ── Noise texture overlay ── */
@@ -49,6 +47,12 @@ body::before {
 }
 
 /* ── Custom cursor ── */
+.cursor-dot,
+.cursor-ring { display: none; }
+
+body.custom-cursor .cursor-dot,
+body.custom-cursor .cursor-ring { display: block; }
+
 .cursor-dot {
   position: fixed;
   left: -100px;
@@ -100,7 +104,30 @@ body::before {
   opacity: 0.7;
 }
 
-* { cursor: none !important; }
+/* Only suppress the native cursor when the JS custom cursor is actually active.
+   No-JS, touch, coarse-pointer, and reduced-motion users keep the system cursor. */
+body.custom-cursor,
+body.custom-cursor * { cursor: none !important; }
+
+/* ── Visible keyboard focus ── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .fade { opacity: 1 !important; transform: none !important; }
+  .scanline, .status-dot { animation: none !important; }
+}
 
 /* ── Accent scan line ── */
 .scanline {
