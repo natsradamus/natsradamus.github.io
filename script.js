@@ -10,11 +10,8 @@
   var accents = [
     { h: "#4ade80", rgb: "74,222,128" },
     { h: "#60a5fa", rgb: "96,165,250" },
-    { h: "#f472b6", rgb: "244,114,182" },
-    { h: "#fb923c", rgb: "251,146,60"  },
     { h: "#a78bfa", rgb: "167,139,250" },
-    { h: "#34d399", rgb: "52,211,153"  },
-    { h: "#facc15", rgb: "250,204,21"  }
+    { h: "#34d399", rgb: "52,211,153"  }
   ];
 
   var accent;
@@ -56,13 +53,25 @@
   });
 
   function lerp(a, b, t) { return a + (b - a) * t; }
-  (function tick() {
+
+  /* Animate the ring only while the tab is visible. A hidden tab throttles
+     RAF but never fully stops it — gating on visibility keeps it off battery
+     entirely, and we resume on return. */
+  var rafId = null;
+  function tick() {
     rx = lerp(rx, mx, 0.18);
     ry = lerp(ry, my, 0.18);
     ring.style.left = rx + "px";
     ring.style.top  = ry + "px";
-    requestAnimationFrame(tick);
-  })();
+    rafId = requestAnimationFrame(tick);
+  }
+  function startLoop() { if (rafId === null) rafId = requestAnimationFrame(tick); }
+  function stopLoop()  { if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; } }
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) stopLoop(); else startLoop();
+  });
+  startLoop();
 
   document.querySelectorAll("a, button").forEach(function (el) {
     el.addEventListener("mouseenter", function () { ring.classList.add("hovering"); });

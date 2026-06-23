@@ -14,6 +14,8 @@
   <meta property="og:url" content="https://natsradamus.github.io/about.html" />
   <meta property="og:image" content="https://natsradamus.github.io/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,6 +53,12 @@
 
     .exp-item:first-child { padding-top: 0; }
     .exp-item:last-child { border-bottom: none; }
+
+    /* On narrow viewports the fixed label column starves the description.
+       Stack it: year above, description full-width. */
+    @media (max-width: 540px) {
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    }
 
     .exp-year {
       font-family: 'IBM Plex Mono', monospace;
@@ -216,7 +224,7 @@
 
     <div class="fade fade-1">
       <h1 class="about-name">Natalie S.</h1>
-      <p class="about-bio">IT support engineer with 6+ years managing enterprise systems and the people who rely on them. I work at the intersection of IT operations, endpoint security, and developer enablement — deploying tooling, writing the documentation that makes it usable for non-technical teams, and building native macOS utilities along the way. I bring a proactive, security-conscious lens to everything I ship. I'm looking for roles where that range matters: customer-facing support, enablement, and security operations.</p>
+      <p class="about-bio">IT support engineer with 6+ years managing enterprise systems and the people who rely on them — most recently a 3,100+ endpoint macOS fleet. I work at the intersection of IT operations, endpoint security, and developer enablement — deploying tooling, writing the documentation that makes it usable for non-technical teams, and building native macOS utilities along the way. I bring a proactive, security-conscious lens to everything I ship. I'm looking for roles where that range matters: customer-facing support, enablement, and security operations.</p>
       <div class="btn-row">
         <a class="btn" href="https://linkedin.com/in/sierranatalie" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -247,7 +255,7 @@
           <p class="exp-year">Nov 2021 –<br>present</p>
           <div>
             <p class="exp-title">IT Support Engineer</p>
-            <p class="exp-desc">Supported a macOS fleet and the teams that depend on it across EST/PST. Built identity and workflow automation cutting processing time by 40%. Authored org-wide enablement documentation that translated developer tooling — Claude Code, Git — for non-technical staff, lowering the barrier to adoption. Developed a native macOS security scoring app mapping 14 controls to GLBA, SOX, NIST CSF, and OWASP Top 10. Identified and documented a systemic MDM enrollment failure across 26 payloads, backed by 110+ incidents over five months.</p>
+            <p class="exp-desc">Supported a 3,100+ endpoint macOS fleet and the teams that depend on it across EST/PST. Built identity and workflow automation cutting processing time by 40%. Authored org-wide enablement documentation that translated developer tooling — Claude Code, Git — for non-technical staff, lowering the barrier to adoption. Developed a native macOS security scoring app mapping 14 controls to GLBA, SOX, NIST CSF, and OWASP Top 10. Identified and documented a systemic MDM enrollment failure across 26 payloads, backed by 110+ incidents over five months.</p>
           </div>
         </div>
 
