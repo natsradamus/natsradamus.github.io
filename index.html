@@ -19,13 +19,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&family=Quicksand:wght@600&family=Saira:wght@300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     .hero { margin-bottom: 64px; }
 
     .hero-label {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 10px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -34,11 +34,11 @@
     }
 
     .name {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 42px;
-      font-weight: 300;
-      letter-spacing: -1px;
-      line-height: 1.1;
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 1.55rem + 3vw, 3.5rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.08;
       margin-bottom: 20px;
       color: var(--text-primary);
     }
@@ -72,7 +72,7 @@
       overflow: hidden;
       border: 1px solid var(--border-mid);
       background: var(--surface);
-      transition: border-color 0.25s, transform 0.25s;
+      transition: border-color 0.25s, transform 0.3s var(--ease-spring);
       position: relative;
       margin-bottom: 14px;
     }
@@ -104,6 +104,30 @@
       position: relative;
     }
 
+    /* ── Featured project: Sorter gets visual priority (taller thumb,
+       accent ring, a 'shipping' flag). One deliberate scale anchor. ── */
+    .project-card--featured { border-color: var(--accent-border); }
+    .project-card--featured .project-thumb { aspect-ratio: 16 / 9; }
+
+    .project-flag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,0,0,0.55);
+      border: 1px solid var(--accent-border);
+      border-radius: 100px;
+      padding: 4px 11px;
+    }
+
+    /* ── Compact project: shorter thumb, recedes below the anchor. ── */
+    .project-card--compact .project-thumb { aspect-ratio: 16 / 5; }
+
     .project-thumb img {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -130,7 +154,7 @@
     }
 
     .fw-chip {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 12px;
       letter-spacing: 0.04em;
       color: var(--text-secondary);
@@ -164,7 +188,7 @@
     }
 
     .project-year {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
       color: var(--text-tertiary);
     }
@@ -192,6 +216,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
   <div class="scanline" id="scanline"></div>
@@ -204,7 +229,7 @@
     </ul>
   </nav>
 
-  <main class="page">
+  <main class="page" id="main">
 
     <div class="hero fade fade-1">
       <p class="hero-label">Portfolio — IT &amp; Security</p>
@@ -229,15 +254,16 @@
     <div class="section fade fade-2">
       <p class="section-label">Projects</p>
 
-      <a class="project-card" href="projects/sorter.html">
+      <a class="project-card project-card--featured" href="projects/sorter.html">
         <div class="project-thumb">
-          <img src="sorter-hero.png" alt="Sorter — macOS file organizer" />
+          <span class="project-flag">Shipping · Mac App Store</span>
+          <img src="sorter-hero.png" alt="Sorter product site hero — “The end of the messy Downloads folder.”" width="1662" height="1270" loading="lazy" decoding="async" />
         </div>
         <div class="project-footer">
           <span class="project-name">Sorter</span>
           <div class="project-right">
             <span class="project-year">2024</span>
-            <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="project-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
             </svg>
           </div>
@@ -245,7 +271,7 @@
         <p class="project-sub">Native macOS menu bar utility. Automatic file organization, 100% on-device. Shipping on the Mac App Store.</p>
       </a>
 
-      <a class="project-card" href="projects/security-scorecard.html">
+      <a class="project-card project-card--compact" href="projects/security-scorecard.html">
         <div class="project-thumb project-thumb--frameworks">
           <span class="fw-chip">GLBA</span>
           <span class="fw-chip">SOX</span>
@@ -256,7 +282,7 @@
           <span class="project-name">Security Scorecard</span>
           <div class="project-right">
             <span class="project-year">2023</span>
-            <svg class="project-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="project-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
             </svg>
           </div>
@@ -272,6 +298,7 @@
     <ul class="footer-links">
       <li><a href="index.html">projects</a></li>
       <li><a href="about.html">about</a></li>
+      <li><a href="mailto:nsierra1@gmail.com">email</a></li>
     </ul>
   </footer>
 

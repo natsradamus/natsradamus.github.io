@@ -1,34 +1,9 @@
 /* natsradamus — shared behavior
-   One source of truth for accent color + custom cursor.
+   Custom cursor enhancement. The accent color is fixed in style.css
+   (--accent) — one consistent brand color, not randomized per visit.
    Loaded by every page (root: "script.js", projects: "../script.js"). */
 (function () {
   "use strict";
-
-  /* ── Accent: chosen ONCE per visit, consistent across page navigations ──
-     Persisted in sessionStorage so projects → about → home stay one color,
-     while a fresh visit (new tab/session) rolls a new one. */
-  var accents = [
-    { h: "#4ade80", rgb: "74,222,128" },
-    { h: "#60a5fa", rgb: "96,165,250" },
-    { h: "#a78bfa", rgb: "167,139,250" },
-    { h: "#34d399", rgb: "52,211,153"  }
-  ];
-
-  var accent;
-  try {
-    var saved = sessionStorage.getItem("accent");
-    if (saved) accent = JSON.parse(saved);
-  } catch (e) { /* private mode / blocked storage — fall through */ }
-
-  if (!accent) {
-    accent = accents[Math.floor(Math.random() * accents.length)];
-    try { sessionStorage.setItem("accent", JSON.stringify(accent)); } catch (e) {}
-  }
-
-  var root = document.documentElement;
-  root.style.setProperty("--accent", accent.h);
-  root.style.setProperty("--accent-dim", "rgba(" + accent.rgb + ",0.08)");
-  root.style.setProperty("--accent-border", "rgba(" + accent.rgb + ",0.20)");
 
   /* ── Custom cursor: enhancement only ──
      Native cursor is the floor. We only take it over on a true fine pointer
@@ -59,8 +34,8 @@
      entirely, and we resume on return. */
   var rafId = null;
   function tick() {
-    rx = lerp(rx, mx, 0.18);
-    ry = lerp(ry, my, 0.18);
+    rx = lerp(rx, mx, 0.30);
+    ry = lerp(ry, my, 0.30);
     ring.style.left = rx + "px";
     ring.style.top  = ry + "px";
     rafId = requestAnimationFrame(tick);
