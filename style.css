@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text-primary);
   min-height: 100vh;
@@ -206,6 +206,15 @@ nav {
   box-shadow: 0 0 6px var(--accent);
 }
 
+/* Group the text links + social icons together on the right side of the nav.
+   The <ul> and the social <span> are wrapped so space-between keeps the
+   logo left and this cluster right. */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
 .nav-links {
   display: flex;
   gap: 28px;
@@ -225,6 +234,29 @@ nav {
 .nav-links a.active {
   color: var(--text-primary);
 }
+
+/* Social icon links in the nav — clickable icons, persistent across pages. */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 16px;
+  margin-left: 4px;
+  border-left: 1px solid var(--border-mid);
+}
+
+.nav-social a {
+  display: inline-flex;
+  color: var(--text-tertiary);
+  transition: color 0.2s, transform 0.2s var(--ease-spring);
+}
+
+.nav-social a:hover {
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.nav-social svg { width: 16px; height: 16px; display: block; }
 
 /* ── Page ── */
 .page {

@@ -24,19 +24,26 @@
   <style>
     /* Page-unique to Sorter. Shared project-detail styles live in style.css. */
     .project-hero-img {
+      display: block;
       width: 100%;
       border-radius: var(--radius-lg);
       overflow: hidden;
       border: 1px solid var(--border-mid);
       margin-bottom: 44px;
       background: #080810;
+      transition: border-color 0.25s;
     }
+
+    .project-hero-img:hover { border-color: var(--accent-border); }
 
     .project-hero-img img {
       width: 100%;
       height: auto;
       display: block;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
     }
+
+    .project-hero-img:hover img { transform: scale(1.01); }
 
     .project-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; padding-top: 6px; }
   </style>
@@ -49,10 +56,20 @@
 
   <nav>
     <a class="nav-logo" href="../index.html">natsradamus</a>
+    <div class="nav-right">
     <ul class="nav-links">
       <li><a href="../index.html">projects</a></li>
       <li><a href="../about.html">about</a></li>
     </ul>
+    <span class="nav-social">
+      <a href="https://linkedin.com/in/sierranatalie" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="https://github.com/natsradamus" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </a>
+    </span>
+    </div>
   </nav>
 
   <main class="page" id="main">
@@ -62,9 +79,9 @@
       all projects
     </a>
 
-    <div class="project-hero-img fade fade-1">
+    <a class="project-hero-img fade fade-1" href="https://sorterapp.net" target="_blank" rel="noopener" aria-label="Visit sorterapp.net">
       <img src="../sorter-hero.png" alt="Sorter product site hero — “The end of the messy Downloads folder.”" width="1662" height="1270" decoding="async" />
-    </div>
+    </a>
 
     <div class="project-header fade fade-2">
       <div>
@@ -75,10 +92,6 @@
         <a class="btn btn-accent" href="https://apps.apple.com/us/app/sorter-file-organizer/id6761699737?mt=12" target="_blank" rel="noopener">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 1.5.8 2.7 2 3.4M12 22V9.4M5 13l7-3.6 7 3.6M5 13v5l7 3.6 7-3.6v-5"/></svg>
           Mac App Store
-        </a>
-        <a class="btn" href="https://sorterapp.net" target="_blank" rel="noopener">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Visit site
         </a>
         <a class="btn" href="https://github.com/natsradamus/SorterApp" target="_blank" rel="noopener">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
