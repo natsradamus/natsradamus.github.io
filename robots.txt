@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://natsradamus.github.io/sitemap.xml
